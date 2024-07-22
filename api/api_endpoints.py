@@ -14,6 +14,6 @@ class ApiEndpoints(ApiManager):
         return response
 
     def get_sims(self):
-        response = self.get(url=f'https://sandbox-partners-api.airalo.com/v2/sims?include=order%2Corder.status%2Corder.user&limit=6')
+        response = self.get(url=f'{ApiLinks.sims_url}?include=order%2Corder.status%2Corder.user&limit=6')
         assert response.status_code == 200, "Get orders failed."
         return response

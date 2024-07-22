@@ -15,6 +15,7 @@ class JapanESimLinks:
 class ApiLinks:
     token_url = "https://sandbox-partners-api.airalo.com/v2/token"
     order_url = 'https://sandbox-partners-api.airalo.com/v2/orders'
+    sims_url = 'https://sandbox-partners-api.airalo.com/v2/sims'
     client_id = "974d515d41f86868eccd2d22aae8d10e"
     client_secret = "tILYEqQRq5PnZ5nccQZ1IiVugUWhZN2UveJZ9rVa"
     merhaba_package = 'merhaba-7days-1gb'
