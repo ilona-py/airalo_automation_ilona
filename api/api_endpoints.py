@@ -1,4 +1,5 @@
 from api import ApiManager
+from source_shop import ApiLinks
 
 
 class ApiEndpoints(ApiManager):
@@ -8,11 +9,11 @@ class ApiEndpoints(ApiManager):
             "quantity": quantity,
             "package_id": package_id,
         }
-        response = self.post(url=f'https://sandbox-partners-api.airalo.com/v2/orders', body=body)
+        response = self.post(url=ApiLinks.order_url, body=body)
         assert response.status_code == 200, "Order submission failed"
         return response
 
     def get_sims(self):
-        response = self.get(url=f'https://sandbox-partners-api.airalo.com/v2/orders')
+        response = self.get(url=f'https://sandbox-partners-api.airalo.com/v2/sims?include=order%2Corder.status%2Corder.user&limit=6')
         assert response.status_code == 200, "Get orders failed."
         return response

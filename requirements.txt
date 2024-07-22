@@ -6,3 +6,4 @@ wheel~=0.41.2
 setuptools~=68.2.0
 packaging~=24.1
 pytest~=8.2.2
+webdriver_manager~=4.0.1

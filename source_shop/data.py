@@ -18,6 +18,7 @@ class ApiLinks:
     client_id = "974d515d41f86868eccd2d22aae8d10e"
     client_secret = "tILYEqQRq5PnZ5nccQZ1IiVugUWhZN2UveJZ9rVa"
     merhaba_package = 'merhaba-7days-1gb'
+    expected_package = "Merhaba-1 GB - 7 Days"
     guide = 'https://www.airalo.com/help/getting-started-with-airalo'
     manual_installation = ('<p><b>eSIM name:</b>\xa0Merhaba</p><p><b>Coverage:\xa0</b>Turkey</p><p><b>To '
                            'manually activate the eSIM on your eSIM capable '

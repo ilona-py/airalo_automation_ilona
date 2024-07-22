@@ -21,4 +21,3 @@ class JapanESimLocators:
     data_gb = (By.XPATH, "//div[@class='sim-detail-top']//p[@data-testid='DATA-value']//..//p")
     validity = (By.XPATH, "//div[@class='sim-detail-top']//p[@data-testid='VALIDITY-value']//..//p")
     price = (By.XPATH, "//div[@class='sim-detail-top']//p[@data-testid='PRICE-value']//..//p")
-
