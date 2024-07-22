@@ -29,9 +29,9 @@ airalo_automation_ilona/
 │   └── locators.py
 │
 ├── tests/
+│   ├── conftest.py
 │   ├── test_api_automation.py
 │   └── test_ui_automation.py
-├── conftest.py
 ```
 
 
@@ -63,6 +63,16 @@ airalo_automation_ilona/
 
 ## Running Tests
 
+### Running Tests from PyCharm
+
+You can run the tests from within PyCharm:
+
+	1.	Open PyCharm and load project.
+	2.	Navigate to the test file you want to run (e.g., test_api_automation.py or test_ui_automation.py).
+	3.	Right-click on the test file and select Run 'pytest in test_api_automation' or Run 'pytest in test_ui_automation'.
+
+This will execute the tests and display the results within the PyCharm console.
+
 ### API Tests
 
 To run the API test, use the following command:
@@ -77,7 +87,8 @@ To run the UI test, use the following command:
 pytest tests/test_ui_automation.py 
 ```
 
-### Utilities
+
+###  Utilities
 
 ```
 •	data.py: Contains data used in the tests.
@@ -117,25 +128,19 @@ Approach:
 5.	Verify eSIM Details:
 	•	Goal: Check that each eSIM in the list has the correct properties and matches the order details.
 	•	Implementation:
-	•	Verify key attributes (id, code, currency, type, esim_type, validity, package, data, price, created_at, manual_installation, qrcode_installation, quantity, package_id) between the order response and the retrieved eSIM list.
-	•	Ensure installation_guides match the expected URLs.
-	•	These checks validate the consistency and accuracy of the eSIM details provided by the API.
-6.	Check Each eSIM Information:
-	•	Goal: Ensure consistency and correct sequencing of each eSIM’s data.
-	•	Implementation:
-	•	Verify that each eSIM ID is incremented by 1 from the previous eSIM.
-	•	Ensure other properties (created_at, lpa, matching_id, apn_type, apn_value, is_roaming, direct_apple_installation_url) are consistent across all eSIMs.
-	•	This step checks the integrity and ordering of eSIM data, which is critical for maintaining proper records.
-7.	Check ICCID Uniqueness and Sequence:
-	•	Goal: Ensure ICCID values are unique and increment sequentially.
-	•	Implementation:
-	•	Collect ICCID values from all eSIMs.
-	•	Verify that each ICCID subsequent ICCID increments by 1.
-	•	This ensures that the ICCIDs are properly assigned and unique, preventing potential conflicts or issues in eSIM identification.
+	•	Verify that the package_id of each eSIM in the list matches the expected package ID.
+	•	Iterate over the created SIMs and find the corresponding SIM in the response to verify detailed properties.
 ```
 
-By following this structured approach, the test case ensures thorough verification of the eSIM order creation process and the consistency of the returned data. 
-The steps are designed to validate both the functional correctness of the API endpoints and the integrity of the eSIM data, providing confidence in the reliability and accuracy of the system.
+Summary
+
+	1.	Setup and Authentication: Authenticate the API client to gain access to the endpoints.
+	2.	Order Creation: Create an order with the specified quantity and package ID.
+	3.	Verify Order Details: Ensure the order response contains the correct number of eSIMs and matches the requested package ID and quantity.
+	4.	Retrieve eSIM List: Fetch the list of eSIMs associated with the created order.
+	5.	Verify eSIM Details: Check that each eSIM in the list has the correct properties and matches the order details, including additional attributes like currency, quantity, type, esim_type, validity, data, and price.
+
+This approach ensures that the test case comprehensively verifies the functionality of the Airalo Partner API, from order creation to detailed validation of the eSIM properties.
 
 ### UI Test: test_ui_automation
 
